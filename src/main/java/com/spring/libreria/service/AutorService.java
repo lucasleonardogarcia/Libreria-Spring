@@ -15,7 +15,7 @@ public class AutorService {
     private AutorRepository autorRepository;
     
     @Transactional
-    public void crear(String nombre, List libro){
+    public void crearAutor(String nombre, List libro){
        Autor autor = new Autor();
        autor.setNombre(nombre);
        autor.setLibro(libro);
@@ -23,7 +23,7 @@ public class AutorService {
        
     }
     @Transactional(readOnly = true)
-    public List<Autor> buscarTodos(){
+    public List<Autor> buscarTodosAutor(){
        return autorRepository.findAll();
     }
 }

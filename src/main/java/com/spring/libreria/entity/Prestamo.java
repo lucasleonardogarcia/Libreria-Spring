@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -22,15 +23,31 @@ public class Prestamo implements Serializable {
    
    @Temporal(TemporalType.DATE)
     private Date devolucion;
+   @ManyToOne
+    private Cliente cliente;
+   
 
+    public Prestamo() {
+    }
     public Prestamo(String Id, Date fecha, Date devolucion) {
         this.Id = Id;
         this.fecha = fecha;
         this.devolucion = devolucion;
     }
 
-    public Prestamo() {
+    public Prestamo(Cliente cliente) {
+        this.cliente = cliente;
     }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+    
+
 
     public String getId() {
         return Id;
